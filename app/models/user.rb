@@ -17,4 +17,8 @@ class User < ApplicationRecord
     self.email.split("@").first
   end
 
+  def like_post?(post) #user 要引用的方法，所以放在user.rb内部
+    self.likes.where( :post_id => post.id ).exists?
+  end
+
 end
