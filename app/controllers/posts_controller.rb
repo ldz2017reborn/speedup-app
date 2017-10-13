@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.includes(:user, :liked_users, { :visible_comments => :user }).page(params[:page])
   end
-
+  
   def show
     @post = Post.find(params[:id])
 
