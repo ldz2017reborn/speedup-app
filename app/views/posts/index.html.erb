@@ -9,9 +9,8 @@
     <th>留言用户</th>
     <th>按赞用户</th>
   </tr>
-  <% @posts.each do |post| %>
-    <%= render :partial => "post", :locals => { :post => post } %>
-  <% end %>
+    <%= render :partial => "post", :collection => @posts, :as => :post %>
+  <!-- 整个 @posts.each 循环都拿掉了，新的 :collection 参数就会帮你做循环。 -->
 </table>
 
 <%= paginate @posts %>
